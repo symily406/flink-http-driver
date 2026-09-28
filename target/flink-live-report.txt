@@ -1,0 +1,54 @@
+[INFO] 测试环境                                                       SQL Gateway=http://flink01:32325，集群 REST=http://flink01:8081
+[INFO] 网关版本                                                       GatewayInfo{productName=Apache Flink, version=2.2.1}
+[INFO] 常驻流作业（供集群接口用例复用）                                           1600f22bcdf1e38ffbfe357fbdc2a85c
+[PASS] DML => GatewayResult.getJobId()                            jobId=6cda40248776de1a48b2847d8dfd4ab7, columns=[job id], resultKind=SUCCESS_WITH_CONTENT, isDml=true, updateCount=0
+[PASS] SqlGatewayClient.fetchJobStatus(url, jobId)                state=RUNNING, name=insert-into_default_catalog.default_database.snk_live_1, duration=2124ms
+[PASS] SqlGatewayClient.fetchJobState(url, jobId)                 JobState=RUNNING(3:运行中), code=3, desc=运行中
+[PASS] SqlGatewayClient.isJobRunning(url, jobId)                  true
+[PASS] SqlGatewayClient.fetchJobStatuses(url)                     作业总数=49
+[PASS] JobState 枚举映射                                              fromState(failed)=FAILED(-1:已失败), fromState(CANCELLED)=CANCELED(6:已取消), fromCode(7)=FINISHED(7:已完成), fromCode(999)=UNKNOWN(-10:未知)
+[PASS] SqlGatewayClient.waitForJob(url, jobId, poll, timeout)（超时路径） 等待作业 1600f22bcdf1e38ffbfe357fbdc2a85c 结束超时：2000 ms（当前状态：RUNNING）。
+[PASS] client.execute(s, sql)                                     columns=[id, name, amount], rows=1500, resultKind=SUCCESS_WITH_CONTENT, jobId=a23b2f21806ad0af941044cb93ac4edd
+[PASS] GatewayResult.getColumns/getRows/toMaps/toMap              首行=[2834551166252200566, 455836da0ade537aac75e653b08b47211069d8adc0d0c9c288f0414c1a2f95928993e9e552d5eac87adb4069aedefa7674f7, 1.5919874622516415E+308]
+[PASS] client.fetchOperationLog(s, op)                            lines=1，首行=== Abstract Syntax Tree == LogicalProject(EXPR$0=[1]) +- LogicalValues(tuples=[[{ 0 }]]) == Optimized Physical Plan == Calc(select=[1 AS EXPR$0]) +- Values(tuples=[[{ 0 }]], values=[ZERO]) == Optimized Execution Plan == Calc(select=[1 AS EXPR$0]) +- Values(tup…
+[PASS] client.fetchOperationLog(s, op, maxPages, pollIntervalMs)  maxPages=1 => lines=0
+[PASS] client.fetchOperationError(s, op)                          org.apache.calcite.sql.validate.SqlValidatorException: Object 'no_such_table_4' not found
+[PASS] client.execute() 失败路径 => GatewayExecutionException         org.apache.calcite.sql.validate.SqlValidatorException: Object 'no_such_table_4' not found
+[PASS] SqlGatewayClient.cancelJob(url, jobId)                     state=CANCELED, isCanceled=true
+[PASS] client.submit(s, sql) -> GatewayResultCursor               columns/columnNames/resultKind/next/row/rowAsMap/operationHandle 均可用，rows=25，首行=[8999023747734073072, d4e4c637beafeaad61cef75c5233ce4804a0b670cdc46023cf1fdf3c71745fdc25b3405959bd961e3e08c77145c2c3d6475b]
+[PASS] GatewayResultCursor.drain()                                rows=300
+[PASS] GatewayConfig#getResultRowFormat() 取值映射                    table/plain_text => PLAIN_TEXT，json => JSON
+[PASS] rowFormat=json 读取带类型结果                                     big=1(Long), d1=2.5(BigDecimal)
+[INFO] 网关 /v1 结果接口：rowFormat=PLAIN_TEXT 被忽略（仍是 JSON）              V1 => 200 {"resultType":"PAYLOAD","isQueryResult":true,"jobID":"81822bc15fdfae7f159248866251b2c4","resultKind":"SUCCESS_WITH_CONTENT","results":{"columns":[{"name":"a","logicalType":{"type":"INTEGER","nullable":false},"comment":null},{"name":"b","logicalType":{"type…
+[INFO] 网关无版本前缀结果接口：rowFormat=PLAIN_TEXT 生效（值为字符串）                 200 {"resultType":"PAYLOAD","isQueryResult":true,"jobID":"81822bc15fdfae7f159248866251b2c4","resultKind":"SUCCESS_WITH_CONTENT","results":{"columns":[{"name":"a","logicalType":{"type":"INTEGER","nullable":false},"comment":null},{"name":"b","logicalType":{"type…
+[PASS] SqlGatewayClient.triggerStop(url, jobId, withDrain)        requestId=c707bd5d174849dd3bccc108f3a68224
+[PASS] SqlGatewayClient.getStopResult(url, jobId, requestId)      status=COMPLETED, location=s3a://flink/savepoints/savepoint-b08d68-959a7c6b564a
+[PASS] SqlGatewayClient.stopJob(url, jobId)                       status=COMPLETED, location=s3a://flink/savepoints/savepoint-2e8a94-bed07e8cbd96
+[PASS] SqlGatewayClient.stopJob(url, jobId, withDrain, poll, timeout) status=COMPLETED, location=s3a://flink/savepoints/savepoint-8884fb-ebf39ba826f5
+[PASS] client.ping() / checkReachable() / testConnection()        全部通过（含 jdbc:flink: 前缀写法）
+[PASS] client.checkReachable()（不可达路径）                             IOException => 无法访问位于 http://127.0.0.1:59187 的 Flink SQL Gateway：Connection refused: connect（GET /v1/info 同样失败：Connection refused: connect）
+[PASS] SqlGatewayClient.waitForJob(url, jobId, poll, timeout)     state=FAILED, endTime=1789987295787
+[PASS] SqlGatewayClient.fetchJobExceptions(url, jobId)            entries=1，根因=org.apache.flink.runtime.JobException: Recovery is suppressed by NoRestartBackoffTimeStrategy，exceptionName=org.apache.flink.runtime.JobException
+[INFO] JobExceptions.getRoots()                                   [org.apache.flink.runtime.JobException: Recovery is suppressed by NoRestartBackoffTimeStrategy]
+[PASS] fetchJobExceptions 于健康作业 => 空列表                            isEmpty=true
+[PASS] SqlGatewayClient.fetchJobManagerLog(url)                   lines=15349，首行=2026-09-21 17:49:15,627 INFO org.apache.flink.runtime.entrypoint.ClusterEntrypoint [] - --------------------------------------------------------------------------------
+[INFO] SqlGatewayClient.fetchClusterLog(url, logPath)             ?size=5 被网关忽略：仍返回 15349 行
+[PASS] ClusterLog#tail(n)（客户端本地截断日志）                              lines=5，末行=2026-09-21 18:41:36,137 WARN org.apache.flink.configuration.Configuration [] - Config uses deprecated configuration key 'restart-strategy' instead of proper key 'restart-strategy.type'
+[PASS] SqlGatewayClient.fetchTaskManagerLog(url, tmId)            tmId=node01:34644-0718c3，lines=1184
+[PASS] GatewayHttpException 携带 状态码/响应体/根因                         status=400，根因=org.apache.flink.runtime.rest.handler.HandlerRequestException: Cannot resolve path parameter (session_handle) from value "not-a-session".
+[PASS] client.execute(s, sql, maxRows, pollIntervalMs, operationTimeoutMs) maxRows=10 => rows=10
+[PASS] closeQuietly() 的资源释放效果                                     关闭后再查该操作 => 报错（已释放）
+[PASS] client.cancelOperation(s, op)                              对已结束的操作调用不抛异常
+[PASS] client.executeStatement(s, sql)                            operationHandle=d6b2230c-519a-4e89-b730-73bca3278524
+[PASS] client.getOperationStatus(s, op)                           status=FINISHED, isFinished=true, isTerminal=true
+[PASS] client.closeQuietly(s, op)                                 已发出 DELETE .../operations/{op}/close
+[PASS] SET 语句（会话属性）                                               resultKind=SUCCESS, 首行={result=OK}
+[PASS] SHOW TABLES                                                columns=[table name], rows=1
+[PASS] EXPLAIN                                                    resultKind=SUCCESS_WITH_CONTENT
+[PASS] client.getInfo()                                           productName=Apache Flink, version=2.2.1
+[PASS] client.getJson("/info")                                    version=2.2.1
+[PASS] client.getJson("/jobs/overview")（集群侧逃生口）                   jobs=62, taskmanagers=2
+[PASS] client.openSession()                                       sessionHandle=049742ee-3e7f-4337-ad9d-2a4658d850f3
+[PASS] client.openSession(readTimeoutMs)                          sessionHandle=7d4714ef-05b0-4b54-8bad-84c9e0f90663
+[PASS] client.heartbeat(s) / heartbeat(s, readTimeoutMs)          两次心跳均 2xx
+[PASS] client.closeSession(s)                                     正常关闭；重复关闭不抛异常

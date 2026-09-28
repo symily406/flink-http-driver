@@ -1,0 +1,12 @@
+com\easy\etl\flink\http\ConnectivityTest$1.class
+com\easy\etl\flink\http\JobStatusTest.class
+com\easy\etl\flink\http\ModelMappingTest.class
+com\easy\etl\flink\http\JobStatusTest$1.class
+com\easy\etl\flink\http\GatewayConfigTest.class
+com\easy\etl\flink\http\GatewayLiveIT.class
+com\easy\etl\flink\http\JsonTest.class
+com\easy\etl\flink\http\OperationLogTest.class
+com\easy\etl\flink\http\OperationLogTest$1.class
+com\easy\etl\flink\http\ConnectivityTest.class
+com\easy\etl\flink\http\JobIdTest.class
+com\easy\etl\flink\http\GatewayResultTest.class

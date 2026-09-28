@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.easy.etl.flink.http.GatewayConfigTest" time="0.001" tests="10" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="D:\IdeaWorks\flink-http-driver\target\test-classes;D:\IdeaWorks\flink-http-driver\target\classes;D:\maven\repository\junit\junit\4.13.2\junit-4.13.2.jar;D:\maven\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\maven\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;D:\maven\repository\commons-io\commons-io\2.5\commons-io-2.5.jar;D:\maven\repository\cn\hutool\hutool-all\5.8.41\hutool-all-5.8.41.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.boot.library.path" value="C:\application\java\jdk17\jdk17.0.12\bin"/>
+    <property name="sun.java.command" value="C:\Users\shaoyong\AppData\Local\Temp\surefire15434715880147512013\surefirebooter-20260921171211252_3.jar C:\Users\shaoyong\AppData\Local\Temp\surefire15434715880147512013 2026-09-21T17-12-11_090-jvmRun1 surefire-20260921171211252_1tmp surefire_0-20260921171211252_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\IdeaWorks\flink-http-driver\target\test-classes;D:\IdeaWorks\flink-http-driver\target\classes;D:\maven\repository\junit\junit\4.13.2\junit-4.13.2.jar;D:\maven\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\maven\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;D:\maven\repository\commons-io\commons-io\2.5\commons-io-2.5.jar;D:\maven\repository\cn\hutool\hutool-all\5.8.41\hutool-all-5.8.41.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\shaoyong"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="C:\application\java\jdk17\jdk17.0.12"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\IdeaWorks\flink-http-driver"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\shaoyong\AppData\Local\Temp\surefire15434715880147512013\surefirebooter-20260921171211252_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.12+8-LTS-286"/>
+    <property name="user.name" value="shaoyong"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="D:\maven\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\shaoyong\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2023.2.7"/>
+    <property name="java.version" value="17.0.12"/>
+    <property name="user.dir" value="D:\IdeaWorks\flink-http-driver"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\application\java\jdk17\jdk17.0.12\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\application\MIT\Kerberos\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\application\java\jdk1.8\jdk\bin;C:\application\ssh\PuTTY\;C:\application\nvm\node_cache;C:\application\nvm\node_global;C:\application\Git\cmd;C:\application\Erlang OTP\bin;C:\Python312;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\application\NetSarang\Xshell 8\;C:\application\NetSarang\Xftp 8\;C:\Windows Kits\10\Windows Performance Toolkit\;C:\application\nvm;C:\application\nvm\nodejs;C:\application\Tencent\微信web开发者工具\dll;C:\TDengine;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\application\tortoisegit\bin;C:\application\Yozosoft\Yozo_Office\Lib\xuggler\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;D:\maven\apache-maven-default\bin;C:\Users\shaoyong\AppData\Local\Microsoft\WindowsApps;C:\Users\shaoyong\AppData\Roaming\npm;C:\Users\shaoyong\.dotnet\tools;C:\Users\shaoyong\AppData\Local\Programs\Ollama;C:\application\nvm;C:\application\nvm\nodejs;C:\application\nvm\node_cache;C:\application\nvm\node_global;c:\Ollama;C:\ollama\ollama;C:\application\CodeBuddy CN\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.12+8-LTS-286"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="noCredentialsMeansNoAuthHeader" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="acceptsOptionalJdbcPrefix" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="parsesJdbcPrefixedAddress" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="parsesCredentialsAndRowFormat" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="overridesWinOverAddressParameters" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="rejectsUnknownRowFormat" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="parsesSessionPropertiesAndTimeouts" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="stripsTrailingSlashesAndVersionPath" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="rejectsNonHttpAddress" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+  <testcase name="acceptsHttpAndHttpsAddresses" classname="com.easy.etl.flink.http.GatewayConfigTest" time="0"/>
+</testsuite>
